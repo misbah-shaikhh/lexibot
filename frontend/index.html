@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LexiBot</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Open+Sans&family=Overlock+SC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="chat-header">
+        <h1>LEXIBOT</h1>
+        <span>Virtual Language Assistant</span>
+        <a href="#" class="about-link">About</a>
+      </header>
+  <div class="container">
+    <!-- Sidebar -->
+     <button class="sidebar-toggle" onclick="toggleSidebar()">
+  <i class="fas fa-arrow-right"></i>
+</button>
+    <aside class="sidebar">
+  <div class="sidebar-top">
+    <button class="sidebar-btn">New Chat</button>
+    <input type="text" class="search-bar" placeholder="Search..." />
+    <label class="history-label">Language Tips</label>
+  <div id="tips-box" class="tips-box">
+  <p id="tip-text">Loading a cool tip...</p>
+  </div>
+
+  <!-- Bottom buttons like Feedback, Suggest Features, etc -->
+  <div class="sidebar-bottom">
+    <button class="sidebar-btn" onclick="window.open('https://forms.gle/d1cRRfkk1U1CgPJK6', '_blank')">Feedback</button>
+    <button class="sidebar-btn"onclick="window.open('https://forms.gle/WQmcdgaD5sL7qit9A', '_blank')">Suggest Features</button>
+    <button class="sidebar-btn" onclick="window.open('https://forms.gle/QZV35Qksoq5HmBsN9', '_blank')">Report a Bug</button>
+  </div>
+</aside>
+
+
+    <!-- Main Chat -->
+    <main class="chat-area">
+
+      <div class="chat-window" id="chatWindow">
+        <div class="bot-msg bubble" id="introBubble" style="display: none;">
+             Hey there! I'm LexiBot — your friendly language assistant 🌐. I can help you translate text into different languages and even change the tone or style to match your mood. Need it casual, formal, poetic, or playful? Just type it in, and I’ve got you covered!
+        <div class="bubble-icons">
+        <i class="fas fa-copy" onclick="copyMessage(this)"></i>
+        <i class="fas fa-sync-alt" onclick="refreshMessage(this)"></i>
+        </div>
+        </div>
+      </div>
+
+     <div class="chat-inputs custom-input-container">
+        <div class="input-wrapper">
+          <input type="text" id="userInput" placeholder="Tell LexiBot your sentence... or type 'translate my day : ...' to turn it into a story!" />
+          <div class="dropdowns">
+            <select id="languageSelect">
+              <option value="">Auto Detect</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="hi">Hindi</option>
+              <option value="de">German</option>
+            </select>
+            <select id="toneSelect">
+              <option value="neutral">Neutral</option>
+              <option value="formal">Formal</option>
+              <option value="casual">Casual</option>
+              <option value="poetic">Poetic</option>
+            </select>
+          </div>
+        </div>
+        <div class="send-controls">
+          <button onclick="sendMessage()" class="send-btn">▶</button>
+          <div class="mic-placeholder"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
